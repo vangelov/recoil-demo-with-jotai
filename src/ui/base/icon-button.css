@@ -1,0 +1,8 @@
+.IconButton {
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid var(--color-gray-2);
+  width: 40px;
+  height: 40px;
+  line-height: 0;
+}

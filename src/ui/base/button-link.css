@@ -1,0 +1,10 @@
+.ButtonLink {
+  padding: 8px 12px;
+  background: green;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  border-radius: 3px;
+  align-self: flex-start;
+}

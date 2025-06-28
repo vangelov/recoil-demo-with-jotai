@@ -1,0 +1,20 @@
+:root {
+  --color-gray-1: #eef0f4;
+  --color-gray-2: #dedfe0;
+
+  --color-blue-1: #e7f5ff;
+  --color-blue-2: #1189c7;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+  user-select: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}

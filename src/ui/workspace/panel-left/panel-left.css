@@ -1,0 +1,43 @@
+.PanelLeft {
+  position: absolute;
+
+  background: var(--color-gray-1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-gray-2);
+  border-radius: 3px;
+}
+
+.PanelLeft-Full {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  border-right: 1px solid var(--color-gray-2);
+}
+
+.PanelLeft-Preview {
+  top: 15px;
+  left: 15px;
+}
+
+.PanelLeft-Buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.PanelLeft-Items {
+  overflow-y: auto;
+  margin: 15px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.PanelLeft-PlusButtons {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}

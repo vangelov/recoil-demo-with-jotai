@@ -1,0 +1,14 @@
+.ItemPreview {
+}
+
+.ItemPreview-Label {
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ItemPreview-Position {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}

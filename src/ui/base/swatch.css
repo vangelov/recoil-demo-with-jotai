@@ -1,0 +1,17 @@
+.Swatch {
+  background: white;
+  border-radius: 999px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.Swatch-Color {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+}

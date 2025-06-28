@@ -1,0 +1,19 @@
+.BoundingBoxOverlay {
+  border-style: dashed;
+  border-color: blue;
+  position: absolute;
+  transform-origin: top left;
+  top: 0;
+  left: 0;
+}
+
+.BoundingBoxOverlay-Handle {
+  width: 12px;
+  height: 12px;
+  right: -7px;
+  bottom: -7px;
+  background: white;
+  border: 1px solid blue;
+  position: absolute;
+  border-radius: 4px;
+}

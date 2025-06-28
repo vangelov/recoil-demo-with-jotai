@@ -1,0 +1,7 @@
+.Widget {
+  position: absolute;
+  user-select: none;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+}

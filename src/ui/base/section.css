@@ -1,0 +1,14 @@
+.Section,
+.Section-Form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Section-Title {
+}
+
+.Section-FormRow {
+  display: flex;
+  gap: 20px;
+}

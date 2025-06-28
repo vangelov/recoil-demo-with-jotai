@@ -1,0 +1,13 @@
+.Button {
+  padding: 4px 6px;
+
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  border-radius: 3px;
+  color: black;
+  border: 1px solid black;
+  align-self: flex-start;
+  cursor: pointer;
+}
