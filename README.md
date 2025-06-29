@@ -12,7 +12,7 @@
 
 ---
 
-This project is a reimplementation of the app demonstrated in **David McCabe’s Recoil presentation** at [ReactEurope 2020](https://www.youtube.com/watch?v=_ISAA_Jt9kI) — but using **[Jotai](https://jotai.org/)** instead of Recoil for state management.
+This project is a reimplementation of the app demonstrated in **David McCabe’s Recoil presentation** at [ReactEurope 2020](https://www.youtube.com/watch?v=_ISAA_Jt9kI) — but using [Jotai](https://jotai.org/) instead of Recoil for state management.
 
 
 ## Features 
