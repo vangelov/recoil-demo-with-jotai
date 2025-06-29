@@ -39,7 +39,7 @@ export function createItemsAtoms(initialWorkspace?: Workspace) {
     const itemsIds = get(itemIdsAtom);
     const unconfirmedItemId = get(unconfirmedItemIdAtom);
 
-    return unconfirmedItemId ? [unconfirmedItemId, ...itemsIds] : itemsIds;
+    return unconfirmedItemId ? [...itemsIds, unconfirmedItemId] : itemsIds;
   });
 
   const addUnconfirmedItemAtom = atom(
@@ -52,8 +52,11 @@ export function createItemsAtoms(initialWorkspace?: Workspace) {
 
   const confirmItemAtom = atom(null, (get, set) => {
     const unconfirmedItemId = get(unconfirmedItemIdAtom);
-    if (unconfirmedItemId)
-      set(addItemsAtom, [get(getItemAtom({ id: unconfirmedItemId }))]);
+
+    if (unconfirmedItemId) {
+      const itemAtom = getItemAtom({ id: unconfirmedItemId });
+      set(addItemsAtom, [get(itemAtom)]);
+    }
   });
 
   const addItemsAtom = atom(null, (_get, set, items: WorkspaceItem[]) => {
