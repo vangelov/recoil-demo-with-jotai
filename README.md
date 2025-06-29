@@ -10,6 +10,27 @@
 
 </div>
 
+---
+
+This project is a reimplementation of the app demonstrated in **David McCabe’s Recoil presentation** at [ReactEurope 2020](https://www.youtube.com/watch?v=_ISAA_Jt9kI) — but using **[Jotai](https://jotai.org/)** instead of Recoil for state management.
+
+
+## Features 
+I've done my best to implement all the features demonstrated in the app demo, including:
+
+- All three widget types: Text, Image and Chart
+- Adding, editing, rezising and selection of widgets
+- Boundning box for selected items
+- Asynchronous loading of the charts widgets
+- Preserving aspect ratio when resizing image widgets
+- Saving the document on every change
+- Loading a previously saved document by id
+- Preview link
+- The ability to update the document background color
+- Adding multiple widgets for performance testing
+
+Although panning and zooming weren't explicitly shown in the demo, I chose to include them as they bring the app closer to a real-world implementation. 
+
 ## Scripts
 
 In the project directory, you can run:
