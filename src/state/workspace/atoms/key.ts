@@ -31,6 +31,8 @@ export function createKeyAtoms(
     } else if (params.code === "Escape") {
       const unconfirmedItemId = get(itemsAtoms.unconfirmedItemIdAtom);
 
+      console.log("fuck");
+
       if (unconfirmedItemId) {
         set(itemsAtoms.unconfirmedItemIdAtom, null);
         set(itemsAtoms.removeItemIdsAtom, [unconfirmedItemId]);

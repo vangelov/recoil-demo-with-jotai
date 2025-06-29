@@ -205,6 +205,7 @@ export function createPointerAtoms(
 
     const unconfiredItemId = get(itemsAtoms.unconfirmedItemIdAtom);
     if (unconfiredItemId) {
+      set(itemsAtoms.confirmItemAtom);
       set(itemsAtoms.updateItemAtom, {
         id: unconfiredItemId,
         updates: { opacity: 1.0 },

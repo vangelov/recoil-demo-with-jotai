@@ -16,13 +16,14 @@ export const Workspace = {
     useAtomValue(useWorkspaceContext().getItemAtom({ id })),
   useUpdateItem: () => useSetAtom(useWorkspaceContext().updateItemAtom),
   useItemIds: () => useAtomValue(useWorkspaceContext().itemIdsAtom),
-  useConfirmedItemIds: () =>
-    useAtomValue(useWorkspaceContext().confirmedItemIdsAtom),
+  useItemIdsWithUnconfirmed: () =>
+    useAtomValue(useWorkspaceContext().itemIdsWithUnconfirmedAtom),
+  useAddItems: () => useSetAtom(useWorkspaceContext().addItemsAtom),
+
   useUnconfirmedItemId: () =>
     useAtomValue(useWorkspaceContext().unconfirmedItemIdAtom),
   useUnconfirmedItemType: () =>
     useAtomValue(useWorkspaceContext().unconfirmedItemTypeAtom),
-  useAddItems: () => useSetAtom(useWorkspaceContext().addItemsAtom),
 
   useSetPointerDown: () => useSetAtom(useWorkspaceContext().setPointerDownAtom),
   useSetPointerMove: () => useSetAtom(useWorkspaceContext().setPointerMoveAtom),

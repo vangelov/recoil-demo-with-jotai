@@ -13,7 +13,7 @@ import { Button } from "ui/base/button";
 const powers = [10, 11, 12];
 
 export const PanelLeft = memo(() => {
-  const itemIds = State.Workspace.useConfirmedItemIds();
+  const itemIds = State.Workspace.useItemIds();
   const setNewItem = State.Workspace.useSetNewItem();
   const addItems = State.Workspace.useAddItems();
   const unconfirmedItemType = State.Workspace.useUnconfirmedItemType();

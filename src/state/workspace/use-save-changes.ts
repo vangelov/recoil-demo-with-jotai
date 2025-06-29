@@ -13,12 +13,11 @@ export function useSaveChanges() {
   const timeoutRef = useRef(0);
 
   const onWorkspaceChange = useCallback(() => {
-    if (store.get(workspaceContext.unconfirmedItemIdAtom)) return;
     clearTimeout(timeoutRef.current);
 
     timeoutRef.current = setTimeout(async () => {
       const backgroundColor = store.get(workspaceContext.backgroundColorAtom);
-      const items = store.get(workspaceContext.confirmedItemsAtom);
+      const items = store.get(workspaceContext.itemsAtom);
       const offset = store.get(workspaceContext.offsetAtom);
       const zoom = store.get(workspaceContext.zoomAtom);
       const next = {
@@ -38,7 +37,7 @@ export function useSaveChanges() {
       workspaceContext.backgroundColorAtom,
       workspaceContext.offsetAtom,
       workspaceContext.zoomAtom,
-      workspaceContext.unconfirmedItemIdAtom,
+      workspaceContext.itemIdsAtom,
     ];
     const unsubFunctions = atoms.map((atom) =>
       store.sub(atom, onWorkspaceChange)

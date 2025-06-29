@@ -35,8 +35,7 @@ export function createNewItemAtoms(
       params.type
     );
 
-    set(itemsAtoms.addItemsAtom, [item]);
-    set(itemsAtoms.unconfirmedItemIdAtom, item.id);
+    set(itemsAtoms.addUnconfirmedItemAtom, item);
     set(settingsAtoms.inMoveModeAtom, true);
   });
 

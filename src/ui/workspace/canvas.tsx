@@ -15,7 +15,7 @@ export function Canvas() {
   const setKeyUp = State.Workspace.useSetKeyUp();
 
   const selectedItems = State.Workspace.useSelectedItems();
-  const itemIds = State.Workspace.useItemIds();
+  const itemIds = State.Workspace.useItemIdsWithUnconfirmed();
   const zoom = State.Workspace.useZoom();
   const offset = State.Workspace.useOffset();
   const selectedItemsBoundingBox =

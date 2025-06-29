@@ -30,6 +30,32 @@ export function createItemsAtoms(initialWorkspace?: Workspace) {
       : []
   );
 
+  const itemsAtom = atom((get) => {
+    const itemsIds = get(itemIdsAtom);
+    return itemsIds.map((id) => get(getItemAtom({ id })));
+  });
+
+  const itemIdsWithUnconfirmedAtom = atom((get) => {
+    const itemsIds = get(itemIdsAtom);
+    const unconfirmedItemId = get(unconfirmedItemIdAtom);
+
+    return unconfirmedItemId ? [unconfirmedItemId, ...itemsIds] : itemsIds;
+  });
+
+  const addUnconfirmedItemAtom = atom(
+    null,
+    (_get, set, item: WorkspaceItem) => {
+      getItemAtom(item);
+      set(unconfirmedItemIdAtom, item.id);
+    }
+  );
+
+  const confirmItemAtom = atom(null, (get, set) => {
+    const unconfirmedItemId = get(unconfirmedItemIdAtom);
+    if (unconfirmedItemId)
+      set(addItemsAtom, [get(getItemAtom({ id: unconfirmedItemId }))]);
+  });
+
   const addItemsAtom = atom(null, (_get, set, items: WorkspaceItem[]) => {
     const ids: Array<string> = [];
     for (const item of items) {
@@ -66,11 +92,6 @@ export function createItemsAtoms(initialWorkspace?: Workspace) {
     }
   );
 
-  const confirmedItemsAtom = atom((get) => {
-    const itemsIds = get(confirmedItemIdsAtom);
-    return itemsIds.map((id) => get(getItemAtom({ id })));
-  });
-
   const unconfirmedItemIdAtom = atom<string | null>(null);
 
   const unconfirmedItemTypeAtom = atom((get) => {
@@ -81,22 +102,20 @@ export function createItemsAtoms(initialWorkspace?: Workspace) {
     return item.type;
   });
 
-  const confirmedItemIdsAtom = atom((get) => {
-    const unconfirmedItemId = get(unconfirmedItemIdAtom);
-    const itemIds = get(itemIdsAtom);
-    return itemIds.filter((itemId) => itemId !== unconfirmedItemId);
-  });
-
   return {
     itemIdsAtom,
-    confirmedItemsAtom,
+    itemsAtom,
+    itemIdsWithUnconfirmedAtom,
+
     getItemAtom,
     addItemsAtom,
     removeItemIdsAtom,
     updateItemAtom,
+
+    addUnconfirmedItemAtom,
+    confirmItemAtom,
     unconfirmedItemIdAtom,
     unconfirmedItemTypeAtom,
-    confirmedItemIdsAtom,
   };
 }
 
