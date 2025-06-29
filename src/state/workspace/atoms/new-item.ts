@@ -28,7 +28,7 @@ export function createNewItemAtoms(
       offset,
       zoom
     );
-    set(settingsAtoms.pointerWorldPositionAtom, world);
+    set(settingsAtoms.pointerDownWorldPositionAtom, world);
 
     const item = Data.WorkspaceItems.createUnconfirmedItem(
       { x: world.x, y: world.y },

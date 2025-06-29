@@ -14,7 +14,6 @@ export function createSettingsAtoms(initialWorkspace?: Workspace) {
 
   const pointerDownScreenPositionAtom = atom<Position | null>(null);
   const pointerDownWorldPositionAtom = atom<Position | null>(null);
-  const pointerWorldPositionAtom = atom<Position | null>(null);
 
   const pendingItemIdToSelectAtom = atom<string | null>(null);
   const pendingItemIdToRemoveAtom = atom<string | null>(null);
@@ -25,7 +24,6 @@ export function createSettingsAtoms(initialWorkspace?: Workspace) {
   const resetSettingsAtom = atom(null, (_get, set) => {
     set(pointerDownScreenPositionAtom, null);
     set(pointerDownWorldPositionAtom, null);
-    set(pointerWorldPositionAtom, null);
     set(itemPositionsAtom, null);
     set(itemSizesAtom, null);
     set(savedOffsetAtom, null);
@@ -46,7 +44,6 @@ export function createSettingsAtoms(initialWorkspace?: Workspace) {
 
     pointerDownScreenPositionAtom,
     pointerDownWorldPositionAtom,
-    pointerWorldPositionAtom,
 
     pendingItemIdToSelectAtom,
     pendingItemIdToRemoveAtom,

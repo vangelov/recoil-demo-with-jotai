@@ -40,10 +40,6 @@ export function createPointerAtoms(
 
         set(settingsAtoms.inMoveModeAtom, true);
       } else if (params.selectionType === "resizeHandle") {
-        set(
-          settingsAtoms.pointerDownWorldPositionAtom,
-          Data.Positions.screenToWorld(params.screenPosition, offset, zoom)
-        );
         set(settingsAtoms.inResizeModeAtom, true);
       } else if (params.selectionType === "boundingBox") {
         set(settingsAtoms.inMoveModeAtom, true);
@@ -67,7 +63,7 @@ export function createPointerAtoms(
 
       if (!get(itemsAtoms.unconfirmedItemIdAtom)) {
         set(
-          settingsAtoms.pointerWorldPositionAtom,
+          settingsAtoms.pointerDownWorldPositionAtom,
           Data.Positions.screenToWorld(params.screenPosition, offset, zoom)
         );
       }
@@ -135,14 +131,9 @@ export function createPointerAtoms(
             });
           }
         });
-      } else {
+      } else if (pointerDownWorldPosition) {
         set(settingsAtoms.savedOffsetAtom, get(settingsAtoms.offsetAtom));
         if (!get(settingsAtoms.inMoveModeAtom)) return;
-
-        const pointerWorldPosition = get(
-          settingsAtoms.pointerWorldPositionAtom
-        );
-        if (!pointerWorldPosition) return;
 
         const unconfirmedItemId = get(itemsAtoms.unconfirmedItemIdAtom);
 
@@ -165,7 +156,7 @@ export function createPointerAtoms(
 
         const worldPositionsDelta = Data.Positions.subtract(
           worldPosition,
-          pointerWorldPosition
+          pointerDownWorldPosition
         );
 
         if (

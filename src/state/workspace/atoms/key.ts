@@ -31,12 +31,9 @@ export function createKeyAtoms(
     } else if (params.code === "Escape") {
       const unconfirmedItemId = get(itemsAtoms.unconfirmedItemIdAtom);
 
-      console.log("fuck");
-
       if (unconfirmedItemId) {
         set(itemsAtoms.unconfirmedItemIdAtom, null);
-        set(itemsAtoms.removeItemIdsAtom, [unconfirmedItemId]);
-        set(settingsAtoms.pointerWorldPositionAtom, null);
+        set(settingsAtoms.pointerDownWorldPositionAtom, null);
         set(settingsAtoms.itemPositionsAtom, null);
       }
     } else if (params.code === "Backspace") {
