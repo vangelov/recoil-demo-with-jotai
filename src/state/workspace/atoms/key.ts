@@ -5,7 +5,7 @@ import { SelectedItemsAtoms } from "./selected-items";
 
 type SetKeyParams = {
   code: string;
-  metaKey: boolean;
+  isModifierKeyOn: boolean;
 };
 
 export function createKeyAtoms(
@@ -17,13 +17,13 @@ export function createKeyAtoms(
     if (params.code === "Space" && !get(settingsAtoms.inPanModeAtom)) {
       set(settingsAtoms.savedOffsetAtom, get(settingsAtoms.offsetAtom));
       set(settingsAtoms.inPanModeAtom, true);
-    } else if (params.metaKey && !get(settingsAtoms.inZoomModeAtom)) {
+    } else if (params.isModifierKeyOn && !get(settingsAtoms.inZoomModeAtom)) {
       set(settingsAtoms.inZoomModeAtom, true);
     }
   });
 
   const setKeyUpAtom = atom(null, (get, set, params: SetKeyParams) => {
-    if (!params.metaKey) set(settingsAtoms.inZoomModeAtom, false);
+    if (!params.isModifierKeyOn) set(settingsAtoms.inZoomModeAtom, false);
 
     if (params.code === "Space") {
       set(settingsAtoms.inPanModeAtom, false);

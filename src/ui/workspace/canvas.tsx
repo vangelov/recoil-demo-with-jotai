@@ -5,6 +5,13 @@ import { Data } from "data";
 import { Widget } from "./widget";
 import { BoundingBoxOverlay } from "./bounding-box-overlay";
 import "./canvas.css";
+import { Lib } from "lib";
+
+function checkIsModifierKeyOn(
+  event: PointerEvent<HTMLElement> | WheelEvent | KeyboardEvent
+) {
+  return Lib.isMacOS ? event.metaKey : event.ctrlKey;
+}
 
 export function Canvas() {
   const setPointerDown = State.Workspace.useSetPointerDown();
@@ -92,12 +99,18 @@ export function Canvas() {
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.target instanceof HTMLInputElement) return;
-      setKeyDown({ code: event.code, metaKey: event.metaKey });
+      setKeyDown({
+        code: event.code,
+        isModifierKeyOn: checkIsModifierKeyOn(event),
+      });
     }
 
     function onKeyUp(event: KeyboardEvent) {
       if (event.target instanceof HTMLInputElement) return;
-      setKeyUp({ code: event.code, metaKey: event.metaKey });
+      setKeyUp({
+        code: event.code,
+        isModifierKeyOn: checkIsModifierKeyOn(event),
+      });
     }
 
     document.addEventListener("keydown", onKeyDown);

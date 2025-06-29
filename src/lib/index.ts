@@ -50,6 +50,8 @@ function getRandomInteger(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const isMacOS = navigator.userAgent.indexOf("Mac OS X") >= 0;
+
 export const Lib = {
   clamp,
   assertUnreachable,
@@ -60,4 +62,5 @@ export const Lib = {
   getRandomNumber,
   getRandomInteger,
   useClickOutside,
+  isMacOS,
 };
