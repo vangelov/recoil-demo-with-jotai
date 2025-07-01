@@ -124,6 +124,8 @@ export function Canvas() {
 
   useEffect(() => {
     function onWheel(event: WheelEvent) {
+      event.preventDefault();
+
       setWheel({
         delta: event.deltaY,
         screenPosition: Data.Positions.fromUIEvent(event),
